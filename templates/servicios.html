@@ -1,0 +1,67 @@
+{% extends './base.html' %}
+
+{% block title %} Index {% endblock %}
+
+
+
+
+
+
+{% block body %}
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{  message }} 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      
+
+      </div>
+  </div>
+</div>
+
+<div class="container py-3">
+<form action="/agregarserv" method="POST" class="row g-3">
+  
+    <div class="col-md-6">
+      <label for="cedula" class="form-label">Cedula Cliente</label>
+      <input type="text" class="form-control" name="cedula" id="cedula">
+    </div>
+    <div class="col-md-6">
+        <label for="fecha" class="form-label">Fecha</label>
+        <input type="date" class="form-control" name="fecha" id="fecha" placeholder="DD/MM/AAAA">
+      </div>
+      <div class="col-6">
+      <label for="monto" class="form-label">Monto</label>
+      <input type="number" class="form-control" name="monto" id="monto" placeholder="123456789">
+    </div>
+    <div class="col-6">
+      <label for="tipo" class="form-label">Tipo de Servicio</label>
+        <select id="tipo"  class="form-control" name="tipo" >
+        <option value="1">1</option>
+      </select>
+    
+    </div>
+    <div class="col-md-6">
+        <label for="porcentajeher" class="form-label">Porcentaje</label>
+        <input type="number" class="form-control" name="porcentajeher" id="porcentajeher" value="5">
+      </div>
+    <div class="col-md-6">
+      <input type="hidden" class="form-control" name="creadopor" id="creadopor" value="ivanleal">
+    </div>
+
+ <div style="text-align:center">
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Agregar Servicio</button>
+    </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+

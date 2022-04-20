@@ -1,0 +1,44 @@
+{% extends './base.html' %}
+
+{% block title %} Contacto {% endblock %}
+
+{% block body %}
+
+<div class="container py-3">
+    <form action="/actualizar/{{ usuario.0 }}" method="POST" class="row g-3">
+      
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="nombre" value="{{ usuario.2 }}">
+        </div>
+        <div class="col-md-6">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" name="apellido" id="apellido" value="{{ usuario.3 }}">
+          </div>
+          <div class="col-6">
+          <label for="cedula" class="form-label">Cedula</label>
+          <input type="number" class="form-control" name="cedula" id="cedula" placeholder="123456789" value="{{ usuario.1 }}">
+        </div>
+        <div class="col-6">
+          <label for="telefono" class="form-label">Telefono</label>
+          <input type="number" class="form-control" name="telefono" id="telefono" placeholder="04141234567" value="{{ usuario.4 }}">
+        </div>
+        <div class="col-md-6">
+            <label for="email1" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email1" id="email1" value="{{ usuario.5 }}">
+          </div>
+        <div class="col-md-6">
+          <label for="referidopor" class="form-label">Referido por (Cedula de quien le invit&oacute;):</label>
+          <input type="number" class="form-control" name="referidopor" id="referidopor" placeholder="123456789" value="{{ usuario.6 }}">
+    
+          <input type="hidden" class="form-control" name="actualizadopor" id="actualizadopor" value="ivanleal">
+        </div>
+    
+     <div style="text-align:center">
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Editar Usuario</button>
+        </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}

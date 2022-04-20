@@ -1,0 +1,67 @@
+{% extends './base.html' %}
+
+{% block title %} Index {% endblock %}
+
+
+
+
+
+
+{% block body %}
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{  message }} 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      
+
+      </div>
+  </div>
+</div>
+
+<div class="container py-3">
+<form action="/agregar" method="POST" class="row g-3">
+  
+    <div class="col-md-6">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="nombre" id="nombre">
+    </div>
+    <div class="col-md-6">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" name="apellido" id="apellido">
+      </div>
+      <div class="col-6">
+      <label for="cedula" class="form-label">Cedula</label>
+      <input type="number" class="form-control" name="cedula" id="cedula" placeholder="123456789">
+    </div>
+    <div class="col-6">
+      <label for="telefono" class="form-label">Telefono</label>
+      <input type="number" class="form-control" name="telefono" id="telefono" placeholder="04141234567">
+    </div>
+    <div class="col-md-6">
+        <label for="email1" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email1" id="email1">
+      </div>
+    <div class="col-md-6">
+      <label for="referidopor" class="form-label">Referido por (Cedula de quien le invit&oacute;):</label>
+      <input type="number" class="form-control" name="referidopor" id="referidopor" placeholder="123456789">
+
+      <input type="hidden" class="form-control" name="creadopor" id="creadopor">
+    </div>
+
+ <div style="text-align:center">
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+    </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
